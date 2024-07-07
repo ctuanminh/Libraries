@@ -1,0 +1,46 @@
+Khi nào nên sử dụng Store Produce:
++ Khi thực hiện các câu lệnh phức tạp:
++ 
+lợi ích khi sử dụng Store Producer:
+    + Hiệu suất tốt hơn: 
+        - Vì được biên dịch và lưu lại trong hệ QT CSDL.
+        - Lần request sau thì không cần biên dịch nữa mà chỉ validate các 
+          tham số truyền vào và thực thi. tốt cho các truy vấn lặp đi lặp lại
+    + Bảo mật:
+        - Trong hệ quản trị CSDL thì người QUản trị có thể thiết lập quyền
+        thực thi cho từng Store Producer.
+        - Các tham số truyền vào được kiểm tra, tránh gặp lỗi SQL INJECTION.
+        - Có thể kiểm soát được dữ liệu đầu ra.
+    + Tái sử dụng lại:
+        - SP có thể được sử dụng ở nhiều nơi trong ứng dụng và nhiều ứng dụng khác nhau.
+    + Lập lịch: 
+        - SP có thể được lập lịch để chạy theo thời gian.
+
+
+
+**** Khi Nên Đánh Index:
+Khi Cần Tra Cứu Nhanh:
+
+Nếu bạn thường xuyên thực hiện các truy vấn SELECT để tra cứu dữ liệu, đánh index trên các cột được sử dụng trong điều kiện WHERE của truy vấn có thể cải thiện hiệu suất truy vấn.
+Khi Cần Sắp Xếp Dữ Liệu:
+
+Index giúp cải thiện hiệu suất của các truy vấn ORDER BY và GROUP BY bằng cách giảm độ phức tạp của các thuật toán sắp xếp.
+Khi Thực Hiện Kết Hợp Nhiều Bảng:
+
+Trong trường hợp JOIN, đánh index trên các cột được sử dụng trong các điều kiện kết nối (JOIN conditions) có thể giúp tối ưu hóa hiệu suất của truy vấn.
+Khi Sử Dụng Aggregation Functions:
+
+Các hàm tổng hợp như SUM, AVG, MAX, MIN thường có hiệu suất tốt hơn khi có index trên cột liên quan.
+
+***** Khi Không Nên Đánh Index:
+Khi Dữ Liệu Thay Đổi Thường Xuyên:
+
+Nếu bảng thường xuyên được cập nhật, thêm mới, hoặc xóa bỏ dữ liệu, việc đánh index có thể gây chi phí lớn về mặt hiệu suất khi cập nhật dữ liệu.
+Khi Bảng Quá Nhỏ:
+
+Trong trường hợp bảng có kích thước nhỏ, việc sử dụng index có thể không mang lại nhiều lợi ích và chỉ tăng chi phí lưu trữ và bảo trì.
+Khi Cần Tối Ưu Hóa Ghi Dữ Liệu:
+
+Việc đánh index có thể làm chậm quá trình ghi dữ liệu (INSERT, UPDATE, DELETE), do đó, trong các hệ thống yêu cầu tối ưu hóa ghi, 
+bạn có thể cần cân nhắc trước khi đánh index quá mức.
+

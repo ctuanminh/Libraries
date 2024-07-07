@@ -1,0 +1,19 @@
+1. IdentityDbContext:
+    Là class DbContext được cung cấp bởi ASP.NET Identity dùng để
+    tương tác cơ sở dữ liệu và lưu trữ thông tin người dùng, vai trò, xác thực.
+    Nó là lớp con của DbContext:
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    {
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+            : base(options)
+        {
+        }
+    }
+    Như ví dụ ở trên thì Class ApplicationDbContext kế thừa IdentityDbContext, và
+    ApplicationUser class thể hiện thông tin người dùng.
+
+2.  UserManager
+    Là class dùng để thực hiện các thao tác quản lý người dùng.
+    Chẳng hạn như tạo người dùng mới, xác thực, đặt mật khẩu, quản lý vai trò.
+    Nó tương tác với IdentityDbContext để thực hiện thao tác này.
+

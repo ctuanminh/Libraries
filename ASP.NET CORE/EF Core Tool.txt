@@ -1,0 +1,22 @@
+**************************************Entity Framework Core tools*********************************************************
+1.Install:
+    -dotnet tool install --global dotnet-ef
+2.Update:
+    -dotnet tool update --global dotnet-ef
+
+3.Add package Microsoft.EntityFrameworkCore.Design
+    -dotnet add package Microsoft.EntityFrameworkCore.Design     
+4. Drop Database
+    -dotnet ef database drop       
+    -ConnectionString: "Server=locahost,1435; Initial Catalog=shopapp; User Id=sa; password=@admin1234; Encrypt=false"
+
+5.Create an initial Migration
+    -dotnet ef migrations add InitialCreate 
+    -Trong trường hợp Domain/Entity(DbContext) và Migration Assembly
+    khác project thì thêm đoạn sau vào Services. 
+    builder.Services.AddDbContext<ShopAppDbContext>
+    (options=> options.UseSqlServer(connection, b => b.MigrationsAssembly("ShopApp.API")))
+
+dotnet ef migrations add BizPlan-cl-CompanyCode --context 
+dotnet ef migrations add BizPlan-cl-CompanyCode --project Be.Infrustructure.csproj --context AppDbContext
+dotnet ef database update --project Be.Infrustructure.csproj --context AppDbContext

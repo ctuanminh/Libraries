@@ -1,0 +1,6 @@
+1.Git init
+2.Git remote add origin <url-git>
+3. git pulll
+    git pull origin <brank:main>
+
+

@@ -1,0 +1,9 @@
+Transaction là gì: 
+    Transaction trong SQL được sử dụng để toàn vẹn dữ liệu khi thực hiện
+    nhiều các câu lệnh sql.
++ Transaction giữ cho các thao tác được thực hiện thành công. nếu một trong các 
+    thao tác thất bại thì toàn bộ giao dịch bị huỷ.
++ Transaction giữ cho các thay đổi trong quá trình thực hiện nó không ảnh hưởng đến
+    Transaction khác. vì các thay đổi được áp dụng khi nó commit. 
++ Transaction sau khi commit thì dữ liệu nó không bị mất đi, có thể backup lại từ bản sao lưu.
+
