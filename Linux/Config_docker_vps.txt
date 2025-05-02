@@ -1,0 +1,21 @@
+Setup Base:
+    + sudo apt update
+Cài đặt các dependency cần thiết:
+    + sudo apt install apt-transport-https ca-certificates curl software-properties-common -y
+        Giải thích: 
+            - apt-transport-https: cho phép apt tải các cài đặt thông qua giao thức https(mặc định chỉ http)
+            - ca-certificates: cung cấp các chứng chỉ số để xác minh kết nối giao thức https
+            - curl: công cụ thực thi lệnh để yêu cầu http/https, thường dùng tải file, kiểm tra api
+            - software-properties-common: Cung cấp tiện ích add-apt-repository, Thêm/kích hoạt kho phần mềm (PPA, repo).
+    + sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+        Giải thích:
+            - download docker về repository trước: với các option
+                - curl: tải trên mạng
+                - f: gặp lỗi không thông báo.
+                - s: ẩn tiến trình tải
+                - S: show lỗi nếu có
+                - L: theo dõi chuyển hướng nếu có.
+    + echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+        
+
+        

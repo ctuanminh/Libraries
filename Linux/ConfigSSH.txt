@@ -1,0 +1,16 @@
+I. Setup SSH
+    + sudo apt update
+    + sudo apt install openssh-server
+    + sudo systemctl enable ssh
+    + sudo systemctl start ssh
+II. Setup login SSH Key
+    + Tạo publickey, private key bằng puttygen
+    + publickey đưa lên server
+        sudo nano ~/.ssh/authorized_keys => pate publickey vào save.
+    + putty
+        - Thêm loin: session, nhập IP.
+        - Connection -> Auth -> Credentials -> Chọn privatekey.
+     => save 
+III. Tắt chức năng login = password.
+    + sudo nano /etc/ssh/sshd_config
+        

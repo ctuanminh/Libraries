@@ -1,0 +1,18 @@
+I. Setup Apache Webserver trên Ubuntu 20.04
+    setup Ubuntu
+        sudo apt update
+    install Apache
+        sudo apt install apache2 -y
+    view apache web version.
+        apachectl -v
+    Allow connections on the HTTP p:80
+        sudo ufw allow 80/tcp
+    Cho phép Apache tự động khởi động khi boot.
+        sudo systemctl enable apache2
+    Khởi động apache Webserver
+        sudo systemctl start apache2
+    Xem trang thái Apache
+        sudo systemctl status apache
+II. Tạo mới Apache Virtual Host
+
+    
