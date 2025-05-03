@@ -1,0 +1,30 @@
+*** Sau khi setup openssh và SSH Key
+    B1. Tắt chức năng đăng nhập bằng password.
+    B2. Không cho đăng nhập bằng tài khoản root.
+    B3. Đăng nhập = SSH Key.
+I. Mở cổng cần thiết
+1. Mở cổng SSH, và đổi cổng SSH = 2312
+    + Kiểm tra trạng thái Firewall
+        - sudo ufw status
+        Mặc định tường lữa ufw sẽ inactive sau khi server được setup, tránh cho các kết nối
+        bị dán đoạn                
+    + Cho phép SSH 
+        - sudo ufw allow ssh (mặc định port 22)
+    + cho phép các cổng cụ thể HTTP. HTTPS
+        - sudo ufw allow 80
+        - sudo ufw allow 443
+    + Bật ufw
+        - sudo ufw enable
+        - sudo ufw status verbose
+            Hiện trạng thái ufw và các dịch vụ đang mở.
+2. Change post SSH thành 2312
+    + sudo ufw allow ssh: thì ufw mặc định add port 22    
+    + sudo ufw allow 2312
+    + sudo /etc/ssh/sshd_config
+        - Edit #Port 22 thành Port 22.
+    + sudo ss -tulnp | grep ssh: kiểm tra xem server có lắng nghe port 2312 không.
+    + grep ^Port /etc/ssh/sshd_config
+        - Kiểm tra giá trị trong file.
+
+
+
