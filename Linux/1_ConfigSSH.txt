@@ -13,4 +13,6 @@ II. Setup login SSH Key
      => save 
 III. Tắt chức năng login = password.
     + sudo nano /etc/ssh/sshd_config
+        - PasswordAuthentication no
+        - PubkeyAuthentication yes
         
